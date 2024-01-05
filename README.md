@@ -275,8 +275,9 @@ Create a new view for `State` objects that handles all default RESTFul API actio
 - In the file `api/v1/views/states.py`
 - You must use `to_dict()` to retrieve an object into a valid JSON
 - Update `api/v1/views/__init__.py` to import this new file
-</br>
+
 Retrieves the list of all State objects: `GET /api/v1/states`</br>
+
 Retrieves a `State` object: `GET /api/v1/states/<state_id>`</br>
 
 - If the `state_id` is not linked to any `State` object, raise a `404` error</br>

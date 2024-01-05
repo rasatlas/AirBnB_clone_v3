@@ -229,12 +229,13 @@ guillaume@ubuntu:~/AirBnB_v3$
 
 <hr style="height: 1px;">
 
-__5. Not found__
-<p>Designers are really creative when they have to design a “404 page”, a “Not found”… [34 brilliantly designed 404 error pages](https://www.creativebloq.com/web-design/best-404-pages-812505)</p>
+__5. Not found__</br>
 
-<p>Today it’s different, because you won’t use HTML and CSS, but JSON!</p>
+Designers are really creative when they have to design a “404 page”, a “Not found”… [34 brilliantly designed 404 error pages](https://www.creativebloq.com/web-design/best-404-pages-812505)</br>
 
-<p>In `api/v1/app.py`, create a handler for `404` errors that returns a JSON-formatted `404` status code response. The content should be: `"error": "Not found"`</p>
+Today it’s different, because you won’t use HTML and CSS, but JSON!</br>
+
+In `api/v1/app.py`, create a handler for `404` errors that returns a JSON-formatted `404` status code response. The content should be: `"error": "Not found"`</br>
 
 ```Bash
 guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/nop
@@ -263,27 +264,37 @@ guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/nop -vvv
 guillaume@ubuntu:~/AirBnB_v3$ 
 ```
 
-<p>File: `api/v1/app.py`</p>
+- File: `api/v1/app.py`
 
 <hr style="height: 1px;">
 
-__6. State__
-<p>Create a new view for `State` objects that handles all default RESTFul API actions:</p>
+__6. State__</br>
+
+Create a new view for `State` objects that handles all default RESTFul API actions:</br>
+
 - In the file `api/v1/views/states.py`
 - You must use `to_dict()` to retrieve an object into a valid JSON
 - Update `api/v1/views/__init__.py` to import this new file
-<p>Retrieves the list of all State objects: `GET /api/v1/states`</p>
-<p>Retrieves a `State` object: `GET /api/v1/states/<state_id>`</p>
-- If the `state_id` is not linked to any `State` object, raise a `404` error
-<p>Deletes a `State` object:: `DELETE /api/v1/states/<state_id>`</p>
+</br>
+Retrieves the list of all State objects: `GET /api/v1/states`</br>
+Retrieves a `State` object: `GET /api/v1/states/<state_id>`</br>
+
+- If the `state_id` is not linked to any `State` object, raise a `404` error</br>
+
+Deletes a `State` object:: `DELETE /api/v1/states/<state_id>`
+
 - If the `state_id` is not linked to any `State` object, raise a `404` error
 - Returns an empty dictionary with the status code `200`
-<p>Creates a State: `POST /api/v1/states`</p>
+
+Creates a State: `POST /api/v1/states`
+
 - You must use `request.get_json` from Flask to transform the HTTP body request to a dictionary
 - If the HTTP body request is not valid JSON, raise a `400` error with the message `Not a JSON`
 - If the dictionary doesn’t contain the key `name`, raise a `400` error with the message `Missing name`
-- Returns the new `State` with the status code `201`
-<p>Updates a `State` object: `PUT /api/v1/states/<state_id>`</p>
+- Returns the new `State` with the status code `201`</br>
+
+Updates a `State` object: `PUT /api/v1/states/<state_id>`</br>
+
 - If the `state_id` is not linked to any `State` object, raise a `404` error
 - You must use `request.get_json` from Flask to transform the HTTP body request to a dictionary
 - If the HTTP body request is not valid JSON, raise a `400` error with the message `Not a JSON`
@@ -376,29 +387,42 @@ guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/states/fead
 guillaume@ubuntu:~/AirBnB_v3$
 ```
 
-<p>File: `api/v1/views/states.py`, `api/v1/views/__init__.py`</p>
+- File: `api/v1/views/states.py`, `api/v1/views/__init__.py`
 
 <hr style="height: 1px;">
 
-__7. City__
-<p>Same as `State`, create a new view for `City` objects that handles all default RESTFul API actions:</p>
+__7. City__</br>
+Same as `State`, create a new view for `City` objects that handles all default RESTFul API actions:</br>
+
 - In the file `api/v1/views/cities.py`
 - You must use `to_dict()` to serialize an object into valid JSON
 - Update `api/v1/views/__init__.py` to import this new file
-<p>Retrieves the list of all `City` objects of a `State`: `GET /api/v1/states/<state_id>/cities`
+</br>
+Retrieves the list of all `City` objects of a `State`: `GET /api/v1/states/<state_id>/cities`
+
 - If the `state_id` is not linked to any `State` object, raise a `404` error
-<p>Retrieves a `City` object. : `GET /api/v1/cities/<city_id>`</p>
+</br>
+
+Retrieves a `City` object. : `GET /api/v1/cities/<city_id>`
+
 - If the `city_id` is not linked to any `City` object, raise a `404` error
-<p>Deletes a `City` object: `DELETE /api/v1/cities/<city_id>`</p>
+</br>
+Deletes a `City` object: `DELETE /api/v1/cities/<city_id>`</p>
+
 - If the `city_id` is not linked to any `City` object, raise a `404` error
 - Returns an empty dictionary with the status code `200`
-<p>Creates a `City`: `POST /api/v1/states/<state_id>/cities`</p>
+</br>
+
+Creates a `City`: `POST /api/v1/states/<state_id>/cities`
+
 - You must use `request.get_json` from Flask to transform the HTTP body request to a dictionary
 - If the `state_id` is not linked to any `State` object, raise a `404` error
 - If the HTTP body request is not a valid JSON, raise a `400` error with the message `Not a JSON`
 - If the dictionary doesn’t contain the key `name`, raise a `400` error with the message `Missing name`
 - Returns the new `City` with the status code `201`
-<p>Updates a `City` object: `PUT /api/v1/cities/<city_id>`</p>
+</br>
+Updates a `City` object: `PUT /api/v1/cities/<city_id>`
+
 - If the `city_id` is not linked to any `City` object, raise a `404` error
 - You must use `request.get_json` from Flask to transform the HTTP body request to a dictionary
 - If the HTTP request body is not valid JSON, raise a `400` error with the message `Not a JSON`
@@ -509,7 +533,8 @@ guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/cities/b75a
 }
 guillaume@ubuntu:~/AirBnB_v3$ 
 ```
-<p>File: `api/v1/views/cities.py`, `api/v1/views/__init__.py`</p>
+
+- File: `api/v1/views/cities.py`, `api/v1/views/__init__.py`
 
 <hr style="height: 1px;">
 

@@ -198,6 +198,7 @@ guillaume@ubuntu:~/AirBnB_v3$
 		- import `app_views` from `api.v1.views`
 		- create a route `/status` on the object `app_views` that returns a JSON: `"status": "OK"` (see example)
 </br>
+
 - File: `api/__init__.py`, `api/v1/__init__.py`, `api/v1/views/__init__.py`, `api/v1/views/index.py`, `api/v1/app.py`
 
 <hr style="height: 1px;">

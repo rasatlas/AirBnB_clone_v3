@@ -1,7 +1,8 @@
 # 0x05. AirBnB clone - RESTful API
 `Python` `Back-end` `API` `Webserver` `Flask`
 
-## Resources</br>
+## Resources
+
 __Read or watch:__
 - [Learn REST: A RESTful Tutorial](https://www.restapitutorial.com/)
 - [Designing a RESTful API with Python and Flask](https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask)
@@ -13,7 +14,8 @@ __Read or watch:__
 - [Flask tests](https://flask.palletsprojects.com/en/3.0.x/testing/)
 - [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/)
 
-## Learning Objectives</br>
+## Learning Objectives
+
 At the end of this project, you are expected to be able to [explain to anyone](https://fs.blog/feynman-learning-technique/), __without the help of google:__
 
 ### General
@@ -60,14 +62,15 @@ At the end of this project, you are expected to be able to [explain to anyone](h
 $ pip3 install Flask
 ```
 
-## Tasks</br>
-__0. Restart from scratch!__</br>
-No no no! We are already too far in the project to restart everything.
-</br>
-But once again, let’s work on a new codebase.
-</br>
-For this project you will fork this [codebase](https://github.com/alexaorrico/AirBnB_clone_v2):
+## Tasks
 
+__0. Restart from scratch!__
+
+No no no! We are already too far in the project to restart everything.
+
+But once again, let’s work on a new codebase.
+
+For this project you will fork this [codebase](https://github.com/alexaorrico/AirBnB_clone_v2):
 - Update the repository name to `AirBnB_clone_v3`
 - Update the `README.md`:
 	- Add yourself as an author of the project
@@ -75,18 +78,17 @@ For this project you will fork this [codebase](https://github.com/alexaorrico/Ai
 	- Make it better!
 - If you’re the owner of this codebase, create a new repository called `AirBnB_clone_v3` and copy over all files from `AirBnB_clone_v2`
 
-<hr style="height: 1px;">
+...
 
 __1. Never fail!__
-<p>Since the beginning we’ve been using the `unittest` module, but do you know why `unittests` are so important? Because when you add a new feature, you refactor a piece of code, etc… you want to be sure you didn’t break anything.</p>
 
-<p>At Holberton, we have a lot of tests, and they all pass! Just for the Intranet itself, there are:</p>
+Since the beginning we’ve been using the `unittest` module, but do you know why `unittests` are so important? Because when you add a new feature, you refactor a piece of code, etc… you want to be sure you didn’t break anything.
 
+At Holberton, we have a lot of tests, and they all pass! Just for the Intranet itself, there are:
 - 5,213 assertions (as of 08/20/2018)
 - 13,061 assertions (as of 01/25/2021)
 
-<p>The following requirements must be met for your project:</p>
-
+The following requirements must be met for your project:
 - all current tests must pass (don’t delete them…)
 - add new tests as much as you can (tests are mandatory for some tasks)
 
@@ -98,23 +100,24 @@ OK
 guillaume@ubuntu:~/AirBnB_v3$ 
 ```
 
-<hr style="height: 1px;">
+...
 
 __2. Improve storage__
-<p>Update `DBStorage` and `FileStorage`, adding two new methods. __All changes should be done in the branch__ `storage_get_count`:</p>
 
-<p>A method to retrieve one object:</p>
+Update `DBStorage` and `FileStorage`, adding two new methods. __All changes should be done in the branch__ `storage_get_count`:
 
+A method to retrieve one object:
 - Prototype: `def get(self, cls, id)`:
 	- `cls`: class
 	- `id`: string representing the object ID
 - Returns the object based on the class and its ID, or `None` if not found
-<p>A method to count the number of objects in storage:</p>
 
+A method to count the number of objects in storage:
 - Prototype: `def count(self, cls=None):`
 	- cls: class (optional)
 - Returns the number of objects in storage matching the given class. If no class is passed, returns the count of all objects in storage.
-<p>Don’t forget to add new tests for these 2 methods on each storage engine.</p>
+
+Don’t forget to add new tests for these 2 methods on each storage engine.
 
 ```Bash
 guillaume@ubuntu:~/AirBnB_v3$ cat test_get_count.py
@@ -142,16 +145,18 @@ State objects: 5
 First state: [State] (af14c85b-172f-4474-8a30-d4ec21f9795e) {'updated_at': datetime.datetime(2017, 4, 13, 17, 10, 22, 378824), 'name': 'Arizona', 'id': 'af14c85b-172f-4474-8a30-d4ec21f9795e', 'created_at': datetime.datetime(2017, 4, 13, 17, 10, 22, 378763)}
 guillaume@ubuntu:~/AirBnB_v3$ 
 ```
-<p>For this task, you __must__ make a pull request on GitHub.com, and ask at least one of your peer to review and merge it.</p>
+
+For this task, you __must__ make a pull request on GitHub.com, and ask at least one of your peer to review and merge it.
 
 - Files: File: `models/engine/db_storage.py`, `models/engine/file_storage.py`, `tests/test_models/test_engine/test_db_storage.py`, `tests/test_models/test_engine/test_file_storage.py`
 
-<hr style="height: 1px;">
+...
 
 __3. Status of your API__
-<p>It’s time to start your API!</p>
 
-<p>Your first endpoint (route) will be to return the status of your API:</p>
+It’s time to start your API!
+
+Your first endpoint (route) will be to return the status of your API:
 
 ```Bash
 guillaume@ubuntu:~/AirBnB_v3$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db HBNB_API_HOST=0.0.0.0 HBNB_API_PORT=5000 python3 -m api.v1.app
@@ -159,7 +164,7 @@ guillaume@ubuntu:~/AirBnB_v3$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_p
 ...
 ```
 
-<p>In another terminal:</p>
+In another terminal:
 
 ```Bash
 guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/status
@@ -172,9 +177,9 @@ guillaume@ubuntu:~/AirBnB_v3$ curl -X GET -s http://0.0.0.0:5000/api/v1/status -
 guillaume@ubuntu:~/AirBnB_v3$ 
 ```
 
-<p>Magic right? (No need to have a pretty rendered output, it’s a JSON, only the structure is important)</p>
+Magic right? (No need to have a pretty rendered output, it’s a JSON, only the structure is important)
 
-<p>Ok, let starts:</p>
+Ok, let starts:
 
 - Create a folder `api` at the root of the project with an empty file `__init__.py`
 - Create a folder `v1` inside `api`:
@@ -197,15 +202,14 @@ guillaume@ubuntu:~/AirBnB_v3$
 	- create a file `index.py`
 		- import `app_views` from `api.v1.views`
 		- create a route `/status` on the object `app_views` that returns a JSON: `"status": "OK"` (see example)
-</br>
 
 - File: `api/__init__.py`, `api/v1/__init__.py`, `api/v1/views/__init__.py`, `api/v1/views/index.py`, `api/v1/app.py`
 
-<hr style="height: 1px;">
+...
 
 __4. Some stats?__
-<p>Create an endpoint that retrieves the number of each objects by type:</p>
 
+Create an endpoint that retrieves the number of each objects by type:
 - In `api/v1/views/index.py`
 - Route: `/api/v1/stats`
 - You must use the newly added `count()` method from `storage`
@@ -227,15 +231,15 @@ guillaume@ubuntu:~/AirBnB_v3$
 
 - File: `api/v1/views/index.py`
 
-<hr style="height: 1px;">
+...
 
-__5. Not found__</br>
+__5. Not found__
 
-Designers are really creative when they have to design a “404 page”, a “Not found”… [34 brilliantly designed 404 error pages](https://www.creativebloq.com/web-design/best-404-pages-812505)</br>
+Designers are really creative when they have to design a “404 page”, a “Not found”… [34 brilliantly designed 404 error pages](https://www.creativebloq.com/web-design/best-404-pages-812505)
 
-Today it’s different, because you won’t use HTML and CSS, but JSON!</br>
+Today it’s different, because you won’t use HTML and CSS, but JSON!
 
-In `api/v1/app.py`, create a handler for `404` errors that returns a JSON-formatted `404` status code response. The content should be: `"error": "Not found"`</br>
+In `api/v1/app.py`, create a handler for `404` errors that returns a JSON-formatted `404` status code response. The content should be: `"error": "Not found"`
 
 ```Bash
 guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/nop
@@ -266,36 +270,31 @@ guillaume@ubuntu:~/AirBnB_v3$
 
 - File: `api/v1/app.py`
 
-<hr style="height: 1px;">
+...
 
-__6. State__</br>
+__6. State__
 
-Create a new view for `State` objects that handles all default RESTFul API actions:</br>
-
+Create a new view for `State` objects that handles all default RESTFul API actions:
 - In the file `api/v1/views/states.py`
 - You must use `to_dict()` to retrieve an object into a valid JSON
 - Update `api/v1/views/__init__.py` to import this new file
 
-Retrieves the list of all State objects: `GET /api/v1/states`</br>
+Retrieves the list of all State objects: `GET /api/v1/states`
 
-Retrieves a `State` object: `GET /api/v1/states/<state_id>`</br>
-
-- If the `state_id` is not linked to any `State` object, raise a `404` error</br>
+Retrieves a `State` object: `GET /api/v1/states/<state_id>`
+- If the `state_id` is not linked to any `State` object, raise a `404` error
 
 Deletes a `State` object:: `DELETE /api/v1/states/<state_id>`
-
 - If the `state_id` is not linked to any `State` object, raise a `404` error
 - Returns an empty dictionary with the status code `200`
 
 Creates a State: `POST /api/v1/states`
-
 - You must use `request.get_json` from Flask to transform the HTTP body request to a dictionary
 - If the HTTP body request is not valid JSON, raise a `400` error with the message `Not a JSON`
 - If the dictionary doesn’t contain the key `name`, raise a `400` error with the message `Missing name`
-- Returns the new `State` with the status code `201`</br>
+- Returns the new `State` with the status code `201`
 
-Updates a `State` object: `PUT /api/v1/states/<state_id>`</br>
-
+Updates a `State` object: `PUT /api/v1/states/<state_id>`
 - If the `state_id` is not linked to any `State` object, raise a `404` error
 - You must use `request.get_json` from Flask to transform the HTTP body request to a dictionary
 - If the HTTP body request is not valid JSON, raise a `400` error with the message `Not a JSON`
@@ -390,22 +389,19 @@ guillaume@ubuntu:~/AirBnB_v3$
 
 - File: `api/v1/views/states.py`, `api/v1/views/__init__.py`
 
-<hr style="height: 1px;">
+...
 
-__7. City__</br>
+__7. City__
 
-Same as `State`, create a new view for `City` objects that handles all default RESTFul API actions:</br>
-
+Same as `State`, create a new view for `City` objects that handles all default RESTFul API actions:
 - In the file `api/v1/views/cities.py`
 - You must use `to_dict()` to serialize an object into valid JSON
 - Update `api/v1/views/__init__.py` to import this new file
 
 Retrieves the list of all `City` objects of a `State`: `GET /api/v1/states/<state_id>/cities`
-
 - If the `state_id` is not linked to any `State` object, raise a `404` error
 
 Retrieves a `City` object. : `GET /api/v1/cities/<city_id>`
-
 - If the `city_id` is not linked to any `City` object, raise a `404` error
 
 Deletes a `City` object: `DELETE /api/v1/cities/<city_id>`
@@ -420,7 +416,6 @@ Creates a `City`: `POST /api/v1/states/<state_id>/cities`
 - Returns the new `City` with the status code `201`
 
 Updates a `City` object: `PUT /api/v1/cities/<city_id>`
-
 - If the `city_id` is not linked to any `City` object, raise a `404` error
 - You must use `request.get_json` from Flask to transform the HTTP body request to a dictionary
 - If the HTTP request body is not valid JSON, raise a `400` error with the message `Not a JSON`
@@ -534,9 +529,10 @@ guillaume@ubuntu:~/AirBnB_v3$
 
 - File: `api/v1/views/cities.py`, `api/v1/views/__init__.py`
 
-<hr style="height: 1px;">
+...
 
-__8. Amenity__</br>
+__8. Amenity__
+
 Create a new view for `Amenity` objects that handles all default RESTFul API actions:
 - In the file `api/v1/views/amenities.py`
 - You must use `to_dict()` to serialize an object into valid JSON
@@ -567,7 +563,7 @@ Updates a `Amenity` object: `PUT /api/v1/amenities/<amenity_id>`
 
 - File: `api/v1/views/amenities.py`, `api/v1/views/__init__.py`
 
-<hr style="height: 1px;">
+...
 
 __9. User__
 
@@ -602,7 +598,7 @@ Updates a `User` object: `PUT /api/v1/users/<user_id>`
 
 - File: `api/v1/views/users.py`, `api/v1/views/__init__.py`
 
-<hr style="height: 1px;">
+...
 
 __10. Place__
 
@@ -640,7 +636,7 @@ Updates a `Place` object: `PUT /api/v1/places/<place_id>`
 
 - File: `api/v1/views/places.py`, `api/v1/views/__init__.py`
 
-<hr style="height: 1px;">
+...
 
 __11. Reviews__
 
@@ -678,7 +674,7 @@ Updates a `Review` object: `PUT /api/v1/reviews/<review_id>`
 
 - File: `api/v1/views/places_reviews.py`, `api/v1/views/__init__.py`
 
-<hr style="height: 1px;">
+...
 
 __12. HTTP access control (CORS)__
 
@@ -731,8 +727,8 @@ guillaume@ubuntu:~/AirBnB_v3$ curl -X GET http://0.0.0.0:5000/api/v1/cities/1da2
 guillaume@ubuntu:~/AirBnB_v3$ 
 ```
 
-<p>File: api/v1/app.py</p>
+- File: `api/v1/app.py`
 
-<hr style="height: 1px;">
+...
 
 

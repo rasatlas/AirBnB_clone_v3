@@ -78,7 +78,7 @@ For this project you will fork this [codebase](https://github.com/alexaorrico/Ai
 	- Make it better!
 - If you’re the owner of this codebase, create a new repository called `AirBnB_clone_v3` and copy over all files from `AirBnB_clone_v2`
 
-...
+---
 
 __1. Never fail!__
 
@@ -100,7 +100,7 @@ OK
 guillaume@ubuntu:~/AirBnB_v3$ 
 ```
 
-...
+---
 
 __2. Improve storage__
 
@@ -150,7 +150,7 @@ For this task, you __must__ make a pull request on GitHub.com, and ask at least 
 
 - Files: File: `models/engine/db_storage.py`, `models/engine/file_storage.py`, `tests/test_models/test_engine/test_db_storage.py`, `tests/test_models/test_engine/test_file_storage.py`
 
-...
+---
 
 __3. Status of your API__
 
@@ -205,7 +205,7 @@ Ok, let starts:
 
 - File: `api/__init__.py`, `api/v1/__init__.py`, `api/v1/views/__init__.py`, `api/v1/views/index.py`, `api/v1/app.py`
 
-...
+---
 
 __4. Some stats?__
 
@@ -231,7 +231,7 @@ guillaume@ubuntu:~/AirBnB_v3$
 
 - File: `api/v1/views/index.py`
 
-...
+---
 
 __5. Not found__
 
@@ -270,7 +270,7 @@ guillaume@ubuntu:~/AirBnB_v3$
 
 - File: `api/v1/app.py`
 
-...
+---
 
 __6. State__
 
@@ -389,7 +389,7 @@ guillaume@ubuntu:~/AirBnB_v3$
 
 - File: `api/v1/views/states.py`, `api/v1/views/__init__.py`
 
-...
+---
 
 __7. City__
 
@@ -529,7 +529,7 @@ guillaume@ubuntu:~/AirBnB_v3$
 
 - File: `api/v1/views/cities.py`, `api/v1/views/__init__.py`
 
-...
+---
 
 __8. Amenity__
 
@@ -563,7 +563,7 @@ Updates a `Amenity` object: `PUT /api/v1/amenities/<amenity_id>`
 
 - File: `api/v1/views/amenities.py`, `api/v1/views/__init__.py`
 
-...
+---
 
 __9. User__
 
@@ -598,7 +598,7 @@ Updates a `User` object: `PUT /api/v1/users/<user_id>`
 
 - File: `api/v1/views/users.py`, `api/v1/views/__init__.py`
 
-...
+---
 
 __10. Place__
 
@@ -636,7 +636,7 @@ Updates a `Place` object: `PUT /api/v1/places/<place_id>`
 
 - File: `api/v1/views/places.py`, `api/v1/views/__init__.py`
 
-...
+---
 
 __11. Reviews__
 
@@ -674,7 +674,7 @@ Updates a `Review` object: `PUT /api/v1/reviews/<review_id>`
 
 - File: `api/v1/views/places_reviews.py`, `api/v1/views/__init__.py`
 
-...
+---
 
 __12. HTTP access control (CORS)__
 
@@ -729,6 +729,6 @@ guillaume@ubuntu:~/AirBnB_v3$
 
 - File: `api/v1/app.py`
 
-...
+---
 
 

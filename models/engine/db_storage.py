@@ -84,11 +84,11 @@ class DBStorage:
         else:
             all_classes = models.storage.all()
             for val in all_classes.values():
-                if(val.id == id):
+                if (val.id == id):
                     return val
-        
+
     def count(self, cls=None):
-        """Count the number of objects in storage""" 
+        """Count the number of objects in storage"""
         count = 0
         if cls in classes:
             cls = classes[cls]

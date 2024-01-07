@@ -4,7 +4,7 @@
 from datetime import datetime
 import inspect
 import models
-import pycodestyle
+import pep8
 import unittest
 from unittest import mock
 BaseModel = models.base_model.BaseModel
@@ -24,7 +24,7 @@ class TestBaseModelDocs(unittest.TestCase):
         for path in ['models/base_model.py',
                      'tests/test_models/test_base_model.py']:
             with self.subTest(path=path):
-                errors = pycodestyle.Checker(path).check_all()
+                errors = pep8.Checker(path).check_all()
                 self.assertEqual(errors, 0)
 
     def test_module_docstring(self):

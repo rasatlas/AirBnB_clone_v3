@@ -2,7 +2,7 @@
 """
 Contains the class DBStorage
 """
-
+import models
 from models.amenity import Amenity
 from models.base_model import Base
 from models.city import City
@@ -74,21 +74,26 @@ class DBStorage:
         self.__session.remove()
 
     def get(self, cls, id):
-        """A method to retrieve one object"""
-        if cls and id and cls in classes:
-            cls = classes[cls]
-            result = self.__session.query(cls).filter(cls.id == id).first()
-            return result
-        else:
+        """
+        A method to retrieve one object
+        Returns the object based on the class name and its id, or
+        None if not found
+        """
+        if cls not in classes.values():
             return None
-
+        else:
+            all_classes = models.storage.all()
+            for val in all_classes.values():
+                if(val.id == id):
+                    return val
+        
     def count(self, cls=None):
-        """Count the number of objects in storage"""
-        total = 0
+        """Count the number of objects in storage""" 
+        count = 0
         if cls in classes:
             cls = classes[cls]
-            total = self.__session.query(cls).count
+            count = self.__session.query(cls).count
         elif cls is None:
             for cls in classes.values():
-                total += self.__session.query(cls).count()
-        return total
+                count += self.__session.query(cls).count()
+        return count

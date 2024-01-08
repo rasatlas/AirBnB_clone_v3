@@ -7,7 +7,7 @@ from api.v1.views import app_views
 
 
 @app_views.route('/states', methods=['GET'], strict_slashes=False)
-def retrieve_all():
+def retrieve_all_states():
     """Retrieves the list of all State objects"""
     states = storage.all(State)
     state_list = []

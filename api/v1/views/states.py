@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" states module """
 from flask import jsonify, abort, request
 from models import storage
 from models.state import State
@@ -39,4 +40,35 @@ def delete_state(state_id):
     return jsonify({}), 200
 
 
+@app_views.route('/states', methods=['POST'], strict_slashes=False)
+def create_state():
+    """
+    Creates a State
+    Returns the new State with the status code 201
+    """
+    if not request.json:
+        abort(400, "Not a JSON")
+    if 'name' not in request.json:
+        abort(400, "Missing name")
+    state = State(**request.json)
+    storage.new(state)
+    storage.save()
+    return jsonify(state.to_dict()), 201
 
+
+@app_views.route('/states/<state_id>', methods=['PUT'], strict_slashes=False)
+def update_state(state_id):
+    """
+    Updates a State object
+    Returns the State with the status code 200 on success
+    """
+    state = storage.get(State, state_id)
+    if state is None:
+        abort(404)
+    if not request.json:
+        abort(400, "Not a JSON")
+    for key, value in request.json.items():
+        if key not in ['id', 'created_at', 'updated_at']:
+            setattr(state, key, value)
+    storage.save()
+    return jsonify(state.to_dict()), 200

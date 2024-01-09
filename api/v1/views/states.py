@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" states module """
+""" states view """
 from flask import jsonify, abort, request
 from models import storage
 from models.state import State

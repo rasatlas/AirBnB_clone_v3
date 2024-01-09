@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" users module """
+""" users view """
 from flask import jsonify, abort, request
 from models import storage
 from models.user import User

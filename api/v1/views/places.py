@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" places module """
+""" places view """
 from flask import jsonify, abort, request
 from models import storage
 from models.place import Place

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" amenities module """
+""" amenities view """
 from flask import jsonify, abort, request
 from models import storage
 from models.amenity import Amenity

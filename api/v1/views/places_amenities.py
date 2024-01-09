@@ -1,4 +1,4 @@
-#!!/usr/bin/python3
+#!/usr/bin/python3
 """ places_amenities view """
 from flask import jsonify, abort, request
 from models import storage

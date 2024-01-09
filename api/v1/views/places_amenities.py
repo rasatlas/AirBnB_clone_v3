@@ -9,6 +9,7 @@ from os import getenv
 
 db_storage = getenv('HBNB_TYPE_STORAGE')
 
+
 @app_views.route('/places/<place_id>/amenities',
                  methods=['GET'], strict_slashes=False)
 def retrieve_all_place_amenities(place_id):

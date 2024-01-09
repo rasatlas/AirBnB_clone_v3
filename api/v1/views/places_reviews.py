@@ -8,7 +8,8 @@ from models.user import User
 from api.v1.views import app_views
 
 
-@app_views.route('/places/<place_id>/reviews', methods=['GET'], strict_slashes=False)
+@app_views.route('/places/<place_id>/reviews',
+                 methods=['GET'], strict_slashes=False)
 def retrieve_all_reviews(place_id):
     """Retrieves the list of all Review objects of a Place"""
     place = storage.get(Place, place_id)
@@ -30,7 +31,8 @@ def retrieve_review(review_id):
     return jsonify(review.to_dict())
 
 
-@app_views.route('/reviews/<review_id>', methods=['DELETE'], strict_slashes=False)
+@app_views.route('/reviews/<review_id>',
+                 methods=['DELETE'], strict_slashes=False)
 def delete_review(review_id):
     """
     Deletes a Review object or raise 404 error if not found
@@ -44,7 +46,8 @@ def delete_review(review_id):
     return jsonify({}), 200
 
 
-@app_views.route('/places/<place_id>/reviews', methods=['POST'], strict_slashes=False)
+@app_views.route('/places/<place_id>/reviews',
+                 methods=['POST'], strict_slashes=False)
 def create_review(place_id):
     """
     Creates a Review
@@ -80,8 +83,8 @@ def update_review(review_id):
         abort(404)
     if not request.json:
         abort(400, "Not a JSON")
-    for key, value in request.json.items():
-        if key not in ['id', 'user_id', 'place_id', 'created_at', 'updated_at']:
-            setattr(review, key, value)
+    for k, value in request.json.items():
+        if k not in ['id', 'user_id', 'place_id', 'created_at', 'updated_at']:
+            setattr(review, k, value)
     storage.save()
     return jsonify(review.to_dict()), 200

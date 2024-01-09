@@ -1,6 +1,6 @@
 #!!/usr/bin/python3
 """ places_amenities view """
-from flask import jsonify, abort
+from flask import jsonify, abort, request
 from models import storage
 from models.place import Place
 from models.amenity import Amenity
@@ -15,12 +15,11 @@ def retrieve_all_place_amenities(place_id):
     place = storage.get(Place, place_id)
     if place is None:
         abort(404)
+    amenities_list = []
     if getenv('HBNB_TYPE_STORAGE') == 'db':
         amenities = place.amenities
+        for amenity in amenities:
+            amenities_list.append(amenity.to_dict())
     else:
         amenities = place.amenity_ids
-    amenity_list = []
-    for amenity in amenities:
-        amenity_list.append(amenity.to_dict())
-    return jsonify(amenity_list)
-
+    return jsonify(amenities_list)

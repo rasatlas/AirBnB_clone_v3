@@ -8,7 +8,8 @@ from api.v1.views import app_views
 from os import getenv
 
 
-@app_views.route('/places/<place_id>/amenities', methods=['GET'], strict_slashes=False)
+@app_views.route('/places/<place_id>/amenities',
+                 methods=['GET'], strict_slashes=False)
 def retrieve_all_place_amenities(place_id):
     """Retrieves the list of all Amenity objects of a Place"""
     place = storage.get(Place, place_id)
@@ -24,7 +25,8 @@ def retrieve_all_place_amenities(place_id):
     return jsonify(amenity_list)
 
 
-@app_views.route('/places/<place_id>/amenities/<amenity_id>', methods=['DELETE'], strict_slashes=False)
+@app_views.route('/places/<place_id>/amenities/<amenity_id>',
+                 methods=['DELETE'], strict_slashes=False)
 def delete_place_amenity(place_id, amenity_id):
     """
     Deletes a Amenity object or raise 404 error if not found
@@ -47,8 +49,9 @@ def delete_place_amenity(place_id, amenity_id):
     return jsonify({}), 200
 
 
-@app_views.route('/places/<place_id>/amenities/<amenity_id>', methods=['POST'], strict_slashes=False)
-def create_amenity(place_id, amenity_id):
+@app_views.route('/places/<place_id>/amenities/<amenity_id>',
+                 methods=['POST'], strict_slashes=False)
+def create_place_amenity(place_id, amenity_id):
     """
     Creates a Amenity
     Returns the new Amenity with the status code 201
